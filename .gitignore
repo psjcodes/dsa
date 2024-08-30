@@ -2,3 +2,4 @@
 .vscode
 math/.venv
 math/__pycache__
+math/*.ipynb
