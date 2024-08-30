@@ -1,1 +1,4 @@
 *.txt
+.vscode
+math/.venv
+math/__pycache__
