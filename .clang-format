@@ -1,0 +1,6 @@
+BasedOnStyle: Google  # Start with Google's style as the base
+IndentWidth: 4        # Set indentation to 4 spaces
+ColumnLimit: 100      # Set the maximum column width to 100
+BreakBeforeBraces: Attach  # Use Allman style braces
+UseTab: Never         # Don't use tabs; use spaces instead
+AccessModifierOffset: -4
