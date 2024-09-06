@@ -59,7 +59,7 @@ public:
 };
 
 template <typename KeyType, typename ValueType>
-class WeightedDigraph : public AdjListGraph<KeyType, pair<KeyType, ValueType>> {
+class WeightedDigraph : public AdjListGraph<KeyType, ValueType> {
 private:
     unordered_map<KeyType, list<pair<KeyType, ValueType>>> adjList;
 

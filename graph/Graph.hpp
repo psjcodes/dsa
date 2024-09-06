@@ -32,7 +32,7 @@ void SimpleGraph<KeyType>::printGraph() const {
 
 template <typename KeyType, typename ValueType>
 void WeightedDigraph<KeyType, ValueType>::addEdge(const KeyType& src, const KeyType& dest, const optional<ValueType> weight) {
-    adjList[src].push_back({dest, weight});
+    adjList[src].push_back(make_pair(dest, *weight));
 };
 
 template <typename KeyType, typename ValueType>
@@ -76,7 +76,7 @@ bool AdjMatrixGraph<ValueType>::isValidNode(const int& node) const {
 template <typename ValueType>
 void AdjMatrixGraph<ValueType>::addEdge(const int& src, const int& dest, const optional<ValueType> weight) {
     if (isValidNode(src) && isValidNode(dest)) {
-        adjMatrix[src][dest] = weight;
+        adjMatrix[src][dest] = *weight;
     } else {
         cerr << "The src or dest node is out of bounds!" << endl;
     }
