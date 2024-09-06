@@ -20,5 +20,13 @@ int main() {
     dg.removeEdge(0, 1);
     dg.printGraph();
 
+    AdjMatrixGraph<int> mg(5);
+    mg.addEdge(0, 1, 3);
+    mg.addEdge(0, 4, 2);
+    mg.addEdge(1, 4, 7);
+    mg.printGraph();
+    mg.removeEdge(1, 4);
+    mg.printGraph();
+    
     return 0;
 }

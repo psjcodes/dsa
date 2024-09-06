@@ -97,6 +97,7 @@ void AdjMatrixGraph<ValueType>::printGraph() const {
         for (int neighbor = 0; neighbor < maxNodes; ++neighbor) {
             cout << adjMatrix[node][neighbor];
         }
+        cout << endl;
     }
 };
 
