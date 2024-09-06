@@ -99,7 +99,7 @@ template <typename ValueType>
 void AdjMatrixGraph<ValueType>::printGraph() const {
     for (int node = 0; node < maxNodes; ++node) {
         for (int neighbor = 0; neighbor < maxNodes; ++neighbor) {
-            cout << adjMatrix[node][neighbor];
+            cout << adjMatrix[node][neighbor] << " ";
         }
         cout << endl;
     }
