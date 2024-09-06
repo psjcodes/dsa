@@ -4,15 +4,17 @@
 
 using namespace std;
 
-void printVector(vector<int>& vec) {
+template <typename T>
+void printVector(vector<T>& vec) {
     int n = vec.size();
-    for (int& val : vec) {
+    for (T& val : vec) {
         cout << val << " ";
     }
     cout << endl;
 }
 
-void bubbleSort(vector<int>& vec) {
+template <typename T>
+void bubbleSort(vector<T>& vec) {
     int n = vec.size();
     for (int i = 0; i < n; ++i) {
         for (int j = 0; j < n - 1; ++j) {
