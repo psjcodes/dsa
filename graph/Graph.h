@@ -1,10 +1,10 @@
 #pragma once
+#include <iostream>
 #include <list>
-#include <vector>
+#include <optional>
 #include <unordered_map>
 #include <utility>
-#include <iostream>
-#include <optional>
+#include <vector>
 
 using namespace std;
 
@@ -14,7 +14,8 @@ class Graph {
 public:
     Graph() = default;
     virtual ~Graph() = default;
-    virtual void addEdge(const KeyType& src, const KeyType& dest, const optional<ValueType> weight = nullopt) = 0;
+    virtual void addEdge(const KeyType& src, const KeyType& dest,
+                         const optional<ValueType> weight = nullopt) = 0;
     virtual void removeEdge(const KeyType& src, const KeyType& dest) = 0;
     virtual void printGraph() const = 0;
     virtual int getNumNodes() const = 0;
@@ -30,11 +31,10 @@ protected:
 public:
     AdjListGraph() = default;
     virtual ~AdjListGraph() = default;
-    virtual void addEdge(const KeyType& src, const KeyType& dest, const optional<ValueType> weight = nullopt) = 0;
+    virtual void addEdge(const KeyType& src, const KeyType& dest,
+                         const optional<ValueType> weight = nullopt) = 0;
     virtual void removeEdge(const KeyType& src, const KeyType& dest) = 0;
-    virtual int getNumNodes() const {
-        return adjList.size();
-    }
+    virtual int getNumNodes() const { return adjList.size(); }
     vector<KeyType> getNeighbors(const KeyType& node) const {
         try {
             vector<KeyType> neighbors(adjList.at(node).begin(), adjList.at(node).end());
@@ -53,7 +53,8 @@ class SimpleGraph : public AdjListGraph<KeyType, KeyType> {
 public:
     SimpleGraph() = default;
     ~SimpleGraph() = default;
-    void addEdge(const KeyType& src, const KeyType& dest, optional<KeyType> weight = nullopt) override;
+    void addEdge(const KeyType& src, const KeyType& dest,
+                 optional<KeyType> weight = nullopt) override;
     void removeEdge(const KeyType& src, const KeyType& dest) override;
     void printGraph() const override;
 };
@@ -66,7 +67,8 @@ private:
 public:
     WeightedDigraph() = default;
     ~WeightedDigraph() = default;
-    void addEdge(const KeyType& src, const KeyType& dest, const optional<ValueType> weight) override;
+    void addEdge(const KeyType& src, const KeyType& dest,
+                 const optional<ValueType> weight) override;
     void removeEdge(const KeyType& src, const KeyType& dest) override;
     void printGraph() const override;
 };

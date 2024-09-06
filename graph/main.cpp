@@ -1,5 +1,6 @@
-#include "Graph.hpp"
 #include <string>
+
+#include "Graph.hpp"
 
 int main() {
     SimpleGraph<string> g;
@@ -27,6 +28,6 @@ int main() {
     mg.printGraph();
     mg.removeEdge(1, 4);
     mg.printGraph();
-    
+
     return 0;
 }

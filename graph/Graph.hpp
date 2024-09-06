@@ -1,9 +1,11 @@
-#include "Graph.h"
 #include <algorithm>
 #include <cmath>
 
+#include "Graph.h"
+
 template <typename KeyType>
-void SimpleGraph<KeyType>::addEdge(const KeyType& src, const KeyType& dest, optional<KeyType> weight) {
+void SimpleGraph<KeyType>::addEdge(const KeyType& src, const KeyType& dest,
+                                   optional<KeyType> weight) {
     this->adjList[src].push_back(dest);
     this->adjList[dest].push_back(src);
 };
@@ -19,7 +21,7 @@ void SimpleGraph<KeyType>::printGraph() const {
     for (const auto& pair : this->adjList) {
         const auto& node = pair.first;
         const auto& neighbors = pair.second;
-        
+
         cout << node << " -> ";
 
         for (const auto& neighbor : neighbors) {
@@ -31,7 +33,8 @@ void SimpleGraph<KeyType>::printGraph() const {
 };
 
 template <typename KeyType, typename ValueType>
-void WeightedDigraph<KeyType, ValueType>::addEdge(const KeyType& src, const KeyType& dest, const optional<ValueType> weight) {
+void WeightedDigraph<KeyType, ValueType>::addEdge(const KeyType& src, const KeyType& dest,
+                                                  const optional<ValueType> weight) {
     adjList[src].push_back(make_pair(dest, *weight));
 };
 
@@ -57,7 +60,7 @@ void WeightedDigraph<KeyType, ValueType>::printGraph() const {
         for (const auto& neighbor : neighbors) {
             cout << "[" << neighbor.first << ", " << neighbor.second << "] ";
         }
-        
+
         cout << endl;
     }
 };
@@ -74,7 +77,8 @@ bool AdjMatrixGraph<ValueType>::isValidNode(const int& node) const {
 };
 
 template <typename ValueType>
-void AdjMatrixGraph<ValueType>::addEdge(const int& src, const int& dest, const optional<ValueType> weight) {
+void AdjMatrixGraph<ValueType>::addEdge(const int& src, const int& dest,
+                                        const optional<ValueType> weight) {
     if (isValidNode(src) && isValidNode(dest)) {
         adjMatrix[src][dest] = *weight;
     } else {
@@ -88,7 +92,7 @@ void AdjMatrixGraph<ValueType>::removeEdge(const int& src, const int& dest) {
         adjMatrix[src][dest] = 0;
     } else {
         cerr << "The src or dest node is out of bounds!" << endl;
-    } 
+    }
 };
 
 template <typename ValueType>
@@ -106,7 +110,7 @@ int AdjMatrixGraph<ValueType>::getNumNodes() const {
     int numNodes = 0;
     for (int i = 0; i < maxNodes; ++i) {
         for (int j = i; j < maxNodes; ++j) {
-            if (fabs(adjMatrix[i][j] > 1e-9)) {
+            if (fabs(adjMatrix[i][j] > 1e-6)) {
                 ++numNodes;
                 break;
             }
