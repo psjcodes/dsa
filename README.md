@@ -8,9 +8,9 @@ DSA implementations and solutions to programming problems on different websites.
 - Trie
 - Segment tree
 - Disjoint set
-### graph/algo.cpp
-- BFS (traversal)
-- DFS (traversal)
+### graph/graph_algo.hpp
+- BFS for AdjMatrixGraph (traversal)
+- DFS for AdjMatrixGraph (traversal)
 - Djikstra (shortest path)
 - Bellman-Ford (shortest path)
 - Prim (MST)
