@@ -17,6 +17,17 @@ void SimpleGraph<KeyType>::removeEdge(const KeyType& src, const KeyType& dest) {
 };
 
 template <typename KeyType>
+vector<KeyType> SimpleGraph<KeyType>::getNeighbors(const KeyType& node) const {
+    try {
+        vector<KeyType> neighbors(this->adjList.at(node).begin(), this->adjList.at(node).end());
+        return neighbors;
+    } catch (const out_of_range& e) {
+        cerr << "Node " << node << "is not in the graph!" << endl;
+        return {};
+    }
+};
+
+template <typename KeyType>
 void SimpleGraph<KeyType>::printGraph() const {
     for (const auto& pair : this->adjList) {
         const auto& node = pair.first;
@@ -46,6 +57,19 @@ void WeightedDigraph<KeyType, ValueType>::removeEdge(const KeyType& src, const K
             neighbors.erase(it);
             break;
         }
+    }
+};
+
+template <typename KeyType, typename ValueType>
+vector<KeyType> WeightedDigraph<KeyType, ValueType>::getNeighbors(const KeyType& node) const {
+    try {
+        vector<KeyType> neighbors;
+        for (const auto& neighborWeight : adjList.at(node)) {
+            neighbors.push_back(neighborWeight.first);
+        }
+        return neighbors;
+    } catch (const out_of_range& e) {
+        return {};
     }
 };
 

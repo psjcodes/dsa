@@ -35,15 +35,7 @@ public:
                          const optional<ValueType> weight = nullopt) = 0;
     virtual void removeEdge(const KeyType& src, const KeyType& dest) = 0;
     virtual int getNumNodes() const { return adjList.size(); }
-    vector<KeyType> getNeighbors(const KeyType& node) const {
-        try {
-            vector<KeyType> neighbors(adjList.at(node).begin(), adjList.at(node).end());
-            return neighbors;
-        } catch (const out_of_range& e) {
-            cerr << "Node " << node << "is not in the graph!" << endl;
-            return {};
-        }
-    };
+    virtual vector<KeyType> getNeighbors(const KeyType& node) const = 0;
     virtual void printGraph() const = 0;
 };
 
@@ -56,6 +48,7 @@ public:
     void addEdge(const KeyType& src, const KeyType& dest,
                  optional<KeyType> weight = nullopt) override;
     void removeEdge(const KeyType& src, const KeyType& dest) override;
+    vector<KeyType> getNeighbors(const KeyType& node) const override;
     void printGraph() const override;
 };
 
@@ -70,6 +63,7 @@ public:
     void addEdge(const KeyType& src, const KeyType& dest,
                  const optional<ValueType> weight) override;
     void removeEdge(const KeyType& src, const KeyType& dest) override;
+    vector<KeyType> getNeighbors(const KeyType& node) const override;
     void printGraph() const override;
 };
 
