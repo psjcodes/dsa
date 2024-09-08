@@ -7,16 +7,19 @@ DSA implementations and solutions to programming problems on different websites.
 - BST
 - Trie
 - Segment tree
-- Disjoint set
+- Disjoint set / union find
 ### graph/graph_algo.hpp
-- BFS for AdjMatrixGraph (traversal)
-- DFS for AdjMatrixGraph (traversal)
+- Iterative BFS for AdjMatrixGraph (traversal)
+- Recursive DFS for AdjMatrixGraph (traversal)
+- Iterative DFS
 - Djikstra (shortest path)
 - Bellman-Ford (shortest path)
 - Prim (MST)
 - Kruskal (MST)
 - Topological sort
 - Edmonds-Karp (Max flow)
+### leetcode/
+- find-if-path-exists-in-graph.cpp: learn union find solution
 ### math/
 - FFT
 - JLT
